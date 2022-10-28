@@ -1,12 +1,24 @@
-<html>
-<head>
-<title> 
-</title>
-</head>
-<body>
-<h1> 광민이 개새끼 </h1>
-<h2> 광민이 개새끼 </h2>
-<h3> 광민이 개새끼 </h3>
-<h4> 광민이 개새끼 </h4>
-</body>
-</html>
+from pywinauto.application import Application
+import time
+
+
+app = Application().Connect(title=u'No Open Test : Project 1 : Multipurpose Elite  ( MTS FlexTest 60 : FT60_station1.cfg )', class_name='WindowsForms10.Window.8.app.0.182b0e9_r6_ad1')
+
+
+
+
+ad = app[u'WindowsForms10.Window.8.app.0.182b0e9_r6_ad1'] 
+#ad1 = ad[u'WindowsForms10.Window.8.app.0.182b0e9_r6_ad158']
+#ad1.click_input()
+ad.SetFocus()
+ad.Maximize()
+
+
+# current Tuning Set
+#ad = app[u'WindowsForms10.Window.8.app.0.182b0e9_r6_ad1']
+ad2 = ad[u'WindowsForms10.Window.8.app.0.182b0e9_r6_ad163'] #... button
+ad2.Click()
+time.sleep(3)
+app.SelectTuningSet.OK.click()
+time.sleep(3)
+app.MTSTestSuiteStationParametersChanged.NO.click() # if change popup
